@@ -34,6 +34,26 @@ public class SearchPatientSteps {
         MedicationOrdersPage.searchByMedicineName(medicineName);
     }
 
+    @When("I search by start date {string}")
+    public void iSearchByStartDate(String date) {
+        medicationOrdersPage.searchByStartDateOnly(date);
+    }
+
+    @When("I set the end date to {string}")
+    public void iSetTheEndDateTo(String date) {
+        medicationOrdersPage.setEndDate(date);
+    }
+
+    @When("I search by end date {string}")
+    public void iSearchByEndDate(String date) {
+        medicationOrdersPage.searchByEndDateOnly(date);
+    }
+
+    @When("I search by date range from {string} to {string}")
+    public void iSearchByDateRange(String startDate, String endDate) {
+        medicationOrdersPage.searchByDateRange(startDate, endDate);
+    }
+
     @When("I set the start date to {string}")
     public void iSetTheStartDateTo(String date) {
         // Check the field status for debugging
@@ -62,6 +82,6 @@ public class SearchPatientSteps {
     @Then("I should see the patient medication orders")
     public void iShouldSeeThePatientMedicationOrders() {
         Assert.assertTrue(medicationOrdersPage.isPatientSearchResultDisplayed(), "No patient medication orders were displayed in the table.");
-        Assert.assertTrue(medicationOrdersPage.isPatientdatainTable("01284322659"), "Patient phone  01284322659 was not found in the table results.");
+        Assert.assertTrue(medicationOrdersPage.isPatientdatainTable("01021901196"), "Patient phone  01284322659 was not found in the table results.");
     }
 }
